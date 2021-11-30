@@ -1,0 +1,8 @@
+You can open the *.pr files with sigrok's "pulseview".
+
+Measurements were on a 19V/12V Supply Voltage from a 65W USB-C Power Supply. Transistors IRLZ34N or RFP14NO5 were used (leading to very similar results). The analog measurements were done on the negative supply voltage of the power tool [1], which is the NMOS transistor's drain.
+
+All measurements done with either a 10x analog probe or a 2x resistor-based voltage divider (because the measurement device range is +/- 10V only). The analog 10x probe is also connected through a long measurement line, and it is a rather cheap device [1]. Thus, do not trust the analog measurements too much. Please consider, they would also be somewhat different on a final PCB.
+
+[1] Proxxon Micromot Typ 28510, 6-18V pulsed DC, 3~40W, 0-20.000 / MIN (RPM).
+[2] https://sigrok.org/wiki/Noname_LHT00SU1
