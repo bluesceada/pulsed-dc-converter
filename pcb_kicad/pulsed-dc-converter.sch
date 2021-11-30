@@ -1,0 +1,696 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr User 8500 5500
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Transistor_FET:IRLZ34N Q1
+U 1 1 61832CA4
+P 6500 2400
+F 0 "Q1" H 6704 2446 50  0000 L CNN
+F 1 "IRLZ34N or RFP14N05" H 6704 2355 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown" H 6750 2325 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/irlz34npbf.pdf?fileId=5546d462533600a40153567206892720" H 6500 2400 50  0001 L CNN
+F 4 "X" H 6500 2400 50  0001 C CNN "Spice_Primitive"
+F 5 "irlz34n" H 6500 2400 50  0001 C CNN "Spice_Model"
+F 6 "Y" H 6500 2400 50  0001 C CNN "Spice_Netlist_Enabled"
+F 7 "spice/irlz34n.spi" H 6500 2400 50  0001 C CNN "Spice_Lib_File"
+F 8 "2 1 3" H 6500 2400 50  0001 C CNN "Spice_Node_Sequence"
+	1    6500 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 6183436B
+P 6600 3250
+F 0 "#PWR0101" H 6600 3000 50  0001 C CNN
+F 1 "GND" H 6605 3077 50  0000 C CNN
+F 2 "" H 6600 3250 50  0001 C CNN
+F 3 "" H 6600 3250 50  0001 C CNN
+	1    6600 3250
+	1    0    0    -1  
+$EndComp
+$Comp
+L MCU_Microchip_ATtiny:ATtiny25-20PU U1
+U 1 1 6184F93A
+P 1500 2700
+F 0 "U1" H 971 2746 50  0000 R CNN
+F 1 "ATtiny25-20PU" H 1450 3300 50  0000 R CNN
+F 2 "Package_DIP:DIP-8_W7.62mm" H 1500 2700 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/atmel-2586-avr-8-bit-microcontroller-attiny25-attiny45-attiny85_datasheet.pdf" H 1500 2700 50  0001 C CNN
+	1    1500 2700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D_Zener D2
+U 1 1 61838AE9
+P 3950 2650
+F 0 "D2" V 3904 2729 50  0000 L CNN
+F 1 "5.6V" V 3995 2729 50  0000 L CNN
+F 2 "Diode_SMD:D_MiniMELF_Handsoldering" H 3950 2650 50  0001 C CNN
+F 3 "~" H 3950 2650 50  0001 C CNN
+F 4 "X" H 3950 2650 50  0001 C CNN "Spice_Primitive"
+F 5 "DI_BZT52C5V6LP" H 3950 2650 50  0001 C CNN "Spice_Model"
+F 6 "Y" H 3950 2650 50  0001 C CNN "Spice_Netlist_Enabled"
+F 7 "spice/bzt52c5v6lp.spi" H 3950 2650 50  0001 C CNN "Spice_Lib_File"
+	1    3950 2650
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+12V #PWR0102
+U 1 1 61839CC4
+P 3550 1000
+F 0 "#PWR0102" H 3550 850 50  0001 C CNN
+F 1 "+12V" H 3565 1173 50  0000 C CNN
+F 2 "" H 3550 1000 50  0001 C CNN
+F 3 "" H 3550 1000 50  0001 C CNN
+	1    3550 1000
+	1    0    0    -1  
+$EndComp
+Connection ~ 5600 1000
+Wire Wire Line
+	6600 2600 6600 2950
+$Comp
+L power:+12V #PWR0103
+U 1 1 6186CDA6
+P 1100 1200
+F 0 "#PWR0103" H 1100 1050 50  0001 C CNN
+F 1 "+12V" H 1115 1373 50  0000 C CNN
+F 2 "" H 1100 1200 50  0001 C CNN
+F 3 "" H 1100 1200 50  0001 C CNN
+	1    1100 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3300 1200 3300 1900
+$Comp
+L power:GND #PWR0104
+U 1 1 618782F1
+P 1700 1600
+F 0 "#PWR0104" H 1700 1350 50  0001 C CNN
+F 1 "GND" H 1705 1427 50  0000 C CNN
+F 2 "" H 1700 1600 50  0001 C CNN
+F 3 "" H 1700 1600 50  0001 C CNN
+	1    1700 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C2
+U 1 1 6187AA02
+P 2900 1350
+F 0 "C2" H 3018 1396 50  0000 L CNN
+F 1 "10u" H 3018 1305 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D5.0mm_P2.00mm" H 2938 1200 50  0001 C CNN
+F 3 "~" H 2900 1350 50  0001 C CNN
+	1    2900 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1700 1600 1700 1500
+Wire Wire Line
+	2900 1600 2900 1500
+Wire Wire Line
+	2900 1200 3300 1200
+$Comp
+L Device:C C3
+U 1 1 61893B2F
+P 4500 1300
+F 0 "C3" H 4615 1346 50  0000 L CNN
+F 1 "100n Foil" H 4615 1255 50  0000 L CNN
+F 2 "Capacitor_THT:C_Rect_L7.2mm_W2.5mm_P5.00mm_FKS2_FKP2_MKS2_MKP2" H 4538 1150 50  0001 C CNN
+F 3 "~" H 4500 1300 50  0001 C CNN
+	1    4500 1300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:CP C4
+U 1 1 61893B35
+P 5150 1300
+F 0 "C4" H 5268 1346 50  0000 L CNN
+F 1 "470u" H 5268 1255 50  0000 L CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P2.50mm" H 5188 1150 50  0001 C CNN
+F 3 "~" H 5150 1300 50  0001 C CNN
+	1    5150 1300
+	1    0    0    -1  
+$EndComp
+Connection ~ 6600 2950
+Wire Wire Line
+	6600 2950 6600 3250
+Connection ~ 5150 1000
+Wire Wire Line
+	5150 1000 5600 1000
+Wire Wire Line
+	4500 1000 4500 1150
+Wire Wire Line
+	4500 1450 4500 1550
+Wire Wire Line
+	4500 1000 5150 1000
+Wire Wire Line
+	5150 1450 5150 1550
+Wire Wire Line
+	5150 1150 5150 1000
+$Comp
+L Device:R R2
+U 1 1 618C2162
+P 5000 2400
+F 0 "R2" V 4793 2400 50  0000 C CNN
+F 1 "33R" V 4884 2400 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4930 2400 50  0001 C CNN
+F 3 "~" H 5000 2400 50  0001 C CNN
+F 4 "R" H 5000 2400 50  0001 C CNN "Spice_Primitive"
+F 5 "33" H 5000 2400 50  0001 C CNN "Spice_Model"
+F 6 "Y" H 5000 2400 50  0001 C CNN "Spice_Netlist_Enabled"
+	1    5000 2400
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4500 1550 4850 1550
+$Comp
+L power:GND #PWR0105
+U 1 1 618C5A78
+P 4850 1550
+F 0 "#PWR0105" H 4850 1300 50  0001 C CNN
+F 1 "GND" H 4855 1377 50  0000 C CNN
+F 2 "" H 4850 1550 50  0001 C CNN
+F 3 "" H 4850 1550 50  0001 C CNN
+	1    4850 1550
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0106
+U 1 1 618C626E
+P 1500 3400
+F 0 "#PWR0106" H 1500 3150 50  0001 C CNN
+F 1 "GND" H 1505 3227 50  0000 C CNN
+F 2 "" H 1500 3400 50  0001 C CNN
+F 3 "" H 1500 3400 50  0001 C CNN
+	1    1500 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR0107
+U 1 1 6185CE45
+P 1700 4150
+F 0 "#PWR0107" H 1700 4000 50  0001 C CNN
+F 1 "+12V" H 1715 4323 50  0000 C CNN
+F 2 "" H 1700 4150 50  0001 C CNN
+F 3 "" H 1700 4150 50  0001 C CNN
+	1    1700 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0108
+U 1 1 6185E0D3
+P 1700 4550
+F 0 "#PWR0108" H 1700 4300 50  0001 C CNN
+F 1 "GND" H 1705 4377 50  0000 C CNN
+F 2 "" H 1700 4550 50  0001 C CNN
+F 3 "" H 1700 4550 50  0001 C CNN
+	1    1700 4550
+	1    0    0    -1  
+$EndComp
+Connection ~ 4500 1000
+Wire Wire Line
+	3950 2400 3950 2500
+Wire Wire Line
+	3950 2950 3950 2800
+Wire Wire Line
+	1500 1900 1500 2100
+Wire Wire Line
+	1500 3300 1500 3350
+Connection ~ 4850 1550
+Wire Wire Line
+	4850 1550 5150 1550
+$Comp
+L Connector:Conn_01x04_Male J2
+U 1 1 6195C95A
+P 3900 3450
+F 0 "J2" H 3872 3378 50  0000 R CNN
+F 1 "AttinyPins2" H 3872 3423 50  0001 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 3900 3450 50  0001 C CNN
+F 3 "~" H 3900 3450 50  0001 C CNN
+	1    3900 3450
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J3
+U 1 1 619606FB
+P 2650 3550
+F 0 "J3" H 2622 3432 50  0000 R CNN
+F 1 "AttinyPins1" H 2600 3600 50  0001 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" H 2650 3550 50  0001 C CNN
+F 3 "~" H 2650 3550 50  0001 C CNN
+	1    2650 3550
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1500 1900 2350 1900
+Wire Wire Line
+	2100 2500 2900 2500
+Wire Wire Line
+	2100 2600 2700 2600
+Connection ~ 3300 1900
+Wire Wire Line
+	2450 3350 1500 3350
+Connection ~ 1500 3350
+Wire Wire Line
+	1500 3350 1500 3400
+Wire Wire Line
+	2100 2800 2150 2800
+Wire Wire Line
+	2150 2800 2150 3450
+Wire Wire Line
+	2150 3450 2450 3450
+Wire Wire Line
+	2100 2700 2200 2700
+Wire Wire Line
+	2200 2700 2200 3550
+Wire Wire Line
+	2200 3550 2450 3550
+Wire Wire Line
+	2100 2900 2250 2900
+Wire Wire Line
+	2250 2900 2250 3650
+Wire Wire Line
+	2250 3650 2450 3650
+Connection ~ 1700 1600
+$Comp
+L Device:C C5
+U 1 1 618795EF
+P 650 2450
+F 0 "C5" H 765 2496 50  0000 L CNN
+F 1 "10n" H 765 2405 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 688 2300 50  0001 C CNN
+F 3 "~" H 650 2450 50  0001 C CNN
+	1    650  2450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 618B7AA3
+P 2300 1350
+F 0 "C1" H 2415 1396 50  0000 L CNN
+F 1 "100n" H 2415 1305 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 2338 1200 50  0001 C CNN
+F 3 "~" H 2300 1350 50  0001 C CNN
+	1    2300 1350
+	1    0    0    -1  
+$EndComp
+Connection ~ 2900 1200
+Wire Wire Line
+	3550 1000 3750 1000
+Wire Wire Line
+	3800 2400 3950 2400
+Wire Wire Line
+	2000 1200 2300 1200
+$Comp
+L Device:R R1
+U 1 1 618BC87E
+P 3650 2400
+F 0 "R1" V 3443 2400 50  0000 C CNN
+F 1 "10R" V 3534 2400 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 3580 2400 50  0001 C CNN
+F 3 "~" H 3650 2400 50  0001 C CNN
+F 4 "R" H 3650 2400 50  0001 C CNN "Spice_Primitive"
+F 5 "10" H 3650 2400 50  0001 C CNN "Spice_Model"
+F 6 "Y" H 3650 2400 50  0001 C CNN "Spice_Netlist_Enabled"
+	1    3650 2400
+	0    1    1    0   
+$EndComp
+Connection ~ 3950 2400
+Wire Wire Line
+	1500 1900 650  1900
+Wire Wire Line
+	650  1900 650  2300
+Connection ~ 1500 1900
+Wire Wire Line
+	1500 3350 650  3350
+Wire Wire Line
+	650  3350 650  2600
+Wire Wire Line
+	1700 1600 2300 1600
+Connection ~ 2300 1200
+Wire Wire Line
+	2300 1500 2300 1600
+Wire Wire Line
+	2300 1200 2900 1200
+Connection ~ 2300 1600
+Wire Wire Line
+	2300 1600 2900 1600
+$Comp
+L Device:C C6
+U 1 1 619A95B1
+P 1250 1350
+F 0 "C6" H 1365 1396 50  0000 L CNN
+F 1 "10n" H 1365 1305 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1288 1200 50  0001 C CNN
+F 3 "~" H 1250 1350 50  0001 C CNN
+	1    1250 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1100 1200 1250 1200
+Connection ~ 1250 1200
+Wire Wire Line
+	1700 1600 1250 1600
+Wire Wire Line
+	1250 1600 1250 1500
+Wire Wire Line
+	1250 1200 1400 1200
+$Comp
+L Diode:1N4004 D1
+U 1 1 61837CAE
+P 6350 1700
+F 0 "D1" V 6304 1779 50  0000 L CNN
+F 1 "1N4004" V 6395 1779 50  0000 L CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 6350 1525 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 6350 1700 50  0001 C CNN
+F 4 "D" H 6350 1700 50  0001 C CNN "Spice_Primitive"
+F 5 "D1n4004rl" H 6350 1700 50  0001 C CNN "Spice_Model"
+F 6 "Y" H 6350 1700 50  0001 C CNN "Spice_Netlist_Enabled"
+F 7 "spice/1N4004RL.LIB" H 6350 1700 50  0001 C CNN "Spice_Lib_File"
+	1    6350 1700
+	1    0    0    -1  
+$EndComp
+Text Notes 3050 3700 0    50   ~ 0
+Headers so it can be reprogrammed somehow if necessary
+Wire Wire Line
+	3000 2400 3000 3550
+Wire Wire Line
+	3300 3250 3700 3250
+Wire Wire Line
+	3300 3250 3300 1900
+Wire Wire Line
+	2900 3450 3700 3450
+Wire Wire Line
+	2900 2500 2900 3450
+Wire Wire Line
+	2800 3350 3700 3350
+Wire Wire Line
+	2800 3350 2800 2600
+Wire Wire Line
+	3000 3550 3700 3550
+$Comp
+L Device:R R3
+U 1 1 619D5024
+P 2350 2150
+F 0 "R3" V 2143 2150 50  0000 C CNN
+F 1 "22k" V 2234 2150 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 2280 2150 50  0001 C CNN
+F 3 "~" H 2350 2150 50  0001 C CNN
+	1    2350 2150
+	-1   0    0    1   
+$EndComp
+Connection ~ 2250 2900
+Wire Wire Line
+	5750 1700 5600 1700
+Wire Wire Line
+	5600 1000 6600 1000
+$Comp
+L Device:D_Zener D3
+U 1 1 619FD335
+P 5900 1700
+F 0 "D3" V 5850 1500 50  0000 L CNN
+F 1 "5.6V" V 5950 1450 50  0000 L CNN
+F 2 "Diode_SMD:D_MiniMELF_Handsoldering" H 5900 1700 50  0001 C CNN
+F 3 "~" H 5900 1700 50  0001 C CNN
+F 4 "X" H 5900 1700 50  0001 C CNN "Spice_Primitive"
+F 5 "DI_BZT52C5V6LP" H 5900 1700 50  0001 C CNN "Spice_Model"
+F 6 "Y" H 5900 1700 50  0001 C CNN "Spice_Netlist_Enabled"
+F 7 "spice/bzt52c5v6lp.spi" H 5900 1700 50  0001 C CNN "Spice_Lib_File"
+	1    5900 1700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6600 1700 6500 1700
+Wire Wire Line
+	5600 1000 5600 1700
+$Comp
+L Simulation_SPICE:VDC V1
+U 1 1 619E88C9
+P 3750 1350
+F 0 "V1" H 3880 1441 50  0000 L CNN
+F 1 "VDC" H 3880 1350 50  0000 L CNN
+F 2 "" H 3750 1350 50  0001 C CNN
+F 3 "~" H 3750 1350 50  0001 C CNN
+F 4 "Y" H 3750 1350 50  0001 L CNN "Spice_Netlist_Enabled"
+F 5 "V" H 3750 1350 50  0001 L CNN "Spice_Primitive"
+F 6 "dc 12" H 3880 1259 50  0000 L CNN "Spice_Model"
+	1    3750 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:0 #GND0101
+U 1 1 619ECF36
+P 3750 1700
+F 0 "#GND0101" H 3750 1600 50  0001 C CNN
+F 1 "0" H 3900 1700 50  0000 C CNN
+F 2 "" H 3750 1700 50  0001 C CNN
+F 3 "~" H 3750 1700 50  0001 C CNN
+	1    3750 1700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3750 1700 3750 1550
+Connection ~ 3750 1550
+Wire Wire Line
+	3750 1150 3750 1000
+Connection ~ 3750 1000
+Wire Wire Line
+	3750 1000 4500 1000
+Wire Wire Line
+	3750 1550 4500 1550
+Connection ~ 4500 1550
+$Comp
+L Motor:Motor_DC M1
+U 1 1 61A15BC8
+P 6600 1200
+F 0 "M1" H 6758 1196 50  0000 L CNN
+F 1 "Motor_DC" H 6758 1105 50  0000 L CNN
+F 2 "TestPoint:TestPoint_2Pads_Pitch5.08mm_Drill1.3mm" H 6600 1110 50  0001 C CNN
+F 3 "~" H 6600 1110 50  0001 C CNN
+F 4 "X" H 6600 1200 50  0001 C CNN "Spice_Primitive"
+F 5 "DC_MOTOR" H 6600 1200 50  0001 C CNN "Spice_Model"
+F 6 "Y" H 6600 1200 50  0001 C CNN "Spice_Netlist_Enabled"
+F 7 "spice/dc_motor.spi" H 6600 1200 50  0001 C CNN "Spice_Lib_File"
+	1    6600 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Simulation_SPICE:VPULSE V2
+U 1 1 61A08DE2
+P 5350 2600
+F 0 "V2" H 5480 2691 50  0000 L CNN
+F 1 "VPULSE" H 5480 2600 50  0000 L CNN
+F 2 "" H 5350 2600 50  0001 C CNN
+F 3 "~" H 5350 2600 50  0001 C CNN
+F 4 "Y" H 5350 2600 50  0001 L CNN "Spice_Netlist_Enabled"
+F 5 "V" H 5350 2600 50  0001 L CNN "Spice_Primitive"
+F 6 "pulse(0 4.9 0 8n 8n 8.7m 9m)" H 4550 2450 50  0000 L CNN "Spice_Model"
+	1    5350 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Regulator_Linear:LP2950-5.0_TO92 U2
+U 1 1 6183EEBE
+P 1700 1200
+F 0 "U2" H 1700 1442 50  0000 C CNN
+F 1 "LP2950-5.0" H 1700 1351 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 1700 1425 50  0001 C CIN
+F 3 "http://www.ti.com/lit/ds/symlink/lp2951-n.pdf" H 1700 1150 50  0001 C CNN
+	1    1700 1200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5150 2400 5350 2400
+$Comp
+L pspice:0 #GND0102
+U 1 1 61A6F38E
+P 6200 3300
+F 0 "#GND0102" H 6200 3200 50  0001 C CNN
+F 1 "0" H 6350 3300 50  0000 C CNN
+F 2 "" H 6200 3300 50  0001 C CNN
+F 3 "~" H 6200 3300 50  0001 C CNN
+	1    6200 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6200 3300 6200 2950
+Connection ~ 6200 2950
+Wire Wire Line
+	6200 2950 6600 2950
+Wire Wire Line
+	5350 2800 5350 2950
+Connection ~ 5350 2950
+Wire Wire Line
+	5350 2950 5950 2950
+Connection ~ 5350 2400
+Connection ~ 6600 1700
+Wire Wire Line
+	5350 2400 6300 2400
+$Comp
+L Connector:Conn_01x02_Female J1
+U 1 1 61A003A9
+P 2400 4300
+F 0 "J1" H 2428 4276 50  0000 L CNN
+F 1 "Conn_01x02_Female" H 2428 4185 50  0000 L CNN
+F 2 "Connector_BarrelJack:BarrelJack_Wuerth_6941xx301002" H 2400 4300 50  0001 C CNN
+F 3 "~" H 2400 4300 50  0001 C CNN
+	1    2400 4300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1700 4150 1700 4300
+Wire Wire Line
+	1700 4300 2200 4300
+Wire Wire Line
+	2200 4400 1700 4400
+Wire Wire Line
+	1700 4400 1700 4550
+$Comp
+L Device:R R4
+U 1 1 61A161D2
+P 6850 1900
+F 0 "R4" V 6643 1900 50  0000 C CNN
+F 1 "10k" V 6734 1900 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 6780 1900 50  0001 C CNN
+F 3 "~" H 6850 1900 50  0001 C CNN
+F 4 "R" H 6850 1900 50  0001 C CNN "Spice_Primitive"
+F 5 "33" H 6850 1900 50  0001 C CNN "Spice_Model"
+F 6 "Y" H 6850 1900 50  0001 C CNN "Spice_Netlist_Enabled"
+	1    6850 1900
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x02_Female J4
+U 1 1 61A4242A
+P 7800 1550
+F 0 "J4" H 7828 1526 50  0000 L CNN
+F 1 "Conn_01x02_Female" H 7300 1700 50  0001 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 7800 1550 50  0001 C CNN
+F 3 "~" H 7800 1550 50  0001 C CNN
+	1    7800 1550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 2400 3000 2400
+Wire Wire Line
+	3500 2400 3000 2400
+Connection ~ 3000 2400
+Wire Wire Line
+	6600 2950 7150 2950
+Wire Wire Line
+	3950 2400 4850 2400
+Wire Wire Line
+	3950 2950 5350 2950
+$Comp
+L Device:R R5
+U 1 1 61A21B92
+P 7150 2100
+F 0 "R5" V 6943 2100 50  0000 C CNN
+F 1 "10k" V 7034 2100 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 7080 2100 50  0001 C CNN
+F 3 "~" H 7150 2100 50  0001 C CNN
+F 4 "R" H 7150 2100 50  0001 C CNN "Spice_Primitive"
+F 5 "33" H 7150 2100 50  0001 C CNN "Spice_Model"
+F 6 "Y" H 7150 2100 50  0001 C CNN "Spice_Netlist_Enabled"
+	1    7150 2100
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R7
+U 1 1 61A3EED2
+P 5950 2650
+F 0 "R7" V 5743 2650 50  0000 C CNN
+F 1 "10k" V 5834 2650 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5880 2650 50  0001 C CNN
+F 3 "~" H 5950 2650 50  0001 C CNN
+F 4 "R" H 5950 2650 50  0001 C CNN "Spice_Primitive"
+F 5 "33" H 5950 2650 50  0001 C CNN "Spice_Model"
+F 6 "Y" H 5950 2650 50  0001 C CNN "Spice_Netlist_Enabled"
+	1    5950 2650
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 61A3EEE1
+P 6250 2100
+F 0 "R6" V 6043 2100 50  0000 C CNN
+F 1 "100k" V 6134 2100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 6180 2100 50  0001 C CNN
+F 3 "~" H 6250 2100 50  0001 C CNN
+F 4 "R" H 6250 2100 50  0001 C CNN "Spice_Primitive"
+F 5 "33" H 6250 2100 50  0001 C CNN "Spice_Model"
+F 6 "Y" H 6250 2100 50  0001 C CNN "Spice_Netlist_Enabled"
+	1    6250 2100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6600 1700 6600 1900
+Wire Wire Line
+	6700 1900 6600 1900
+Connection ~ 6600 1900
+Wire Wire Line
+	7600 1650 7600 2950
+Wire Wire Line
+	7150 2250 7150 2950
+Connection ~ 7150 2950
+Wire Wire Line
+	7150 2950 7600 2950
+Wire Wire Line
+	7000 1900 7150 1900
+Wire Wire Line
+	7150 1900 7150 1950
+Wire Wire Line
+	7150 1550 7150 1900
+Wire Wire Line
+	7150 1550 7600 1550
+Connection ~ 7150 1900
+Wire Wire Line
+	5950 2100 5950 2500
+Wire Wire Line
+	5950 2800 5950 2950
+Connection ~ 5950 2950
+Wire Wire Line
+	5950 2950 6200 2950
+Wire Wire Line
+	6600 1900 6600 2100
+Wire Wire Line
+	6600 2100 6400 2100
+Connection ~ 6600 2100
+Wire Wire Line
+	6600 2100 6600 2200
+Wire Wire Line
+	6100 2100 5950 2100
+Wire Wire Line
+	5950 2100 2700 2100
+Wire Wire Line
+	2700 2100 2700 2600
+Connection ~ 5950 2100
+Connection ~ 2700 2600
+Wire Wire Line
+	2700 2600 2800 2600
+Wire Wire Line
+	2350 1900 2350 2000
+Connection ~ 2350 1900
+Wire Wire Line
+	2350 2300 2350 2900
+Wire Wire Line
+	2350 2900 2250 2900
+Wire Wire Line
+	2350 1900 3300 1900
+Wire Wire Line
+	6200 1700 6050 1700
+Wire Wire Line
+	6600 1500 6600 1700
+$EndSCHEMATC

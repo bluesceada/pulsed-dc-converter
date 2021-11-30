@@ -1,0 +1,27 @@
+.SUBCKT DC_MOTOR  + - 
+
+* Velocity BEMF Torque
+* +PARAMS: LA=1.5M RA=.5 Ke=.05 KT=.05 JM=250U BM=.1M TL=0 Velocity=10 BEMF=10 Torque=10
+* +PARAMS: LA=380u Ra=.01 Ke=.05 KT=.05 Jm=180U BM=.5M TL=0.0 Velocity=10 BEMF=10 Torque=10
++PARAMS: LA=700u RA=.2 Ke=.05 KT=.05 JM=100U BM=.1M TL=0 Velocity=10 BEMF=10 Torque=10
+
+LA + 1 {La} Rser={Ra}
+R+ + 0 1G
+R- - 0 1G
+R1 + - 1G
+
+bv1 1 - v=-Ke*I(bTORQUE)
+bTORQUE Torque 0 V=KT*I(bv1)-TL
+LINERT Torque 0 {Jm} Rser={Bm}
+bVELOCITY Velocity 0 V=-I(bTORQUE)
+b2 BEMF 0 V=V(1,-)
+
+.ENDS DC_MOTOR
+
+
+.SUBCKT SIMPLE_DC_MOTOR 1 2 Params: Ra=0.1 La=380u
+
+R1 1 i {Ra}
+L1 i 2 {La}
+
+.ENDS SIMPLE_DC_MOTOR
