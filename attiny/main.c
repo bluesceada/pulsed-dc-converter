@@ -37,9 +37,9 @@ int main(void) {
   CLKPR=(1<<CLKPCE);
   CLKPR=(1<<CLKPS0);
 
-  // PB0 pin as transistor gate output, PB3 as debug output
-  PORTB &= ~(0x1 | 0x8); // pull-downs
-  DDRB |= (0x1 | 0x8); // PB0 + PB3 output direction (low-Z)
+  // PB0 pin as transistor gate output, PB3+PB4 as debug output
+  PORTB &= ~(0x1 | 0x8 | 0x10); // pull-downs
+  DDRB |= (0x1 | 0x8 | 0x10); // PB0 + PB3 + PB4 output direction (low-Z)
   // PB2 is the input (for ADC)
 
   // ---- Timer Config ---- //
@@ -73,7 +73,7 @@ int main(void) {
   // ---- END: ADC Config ---- //
 
   while(1) {
-    // interrupt-only operation
+    // interrupt-only operation, loop runs once after each interrupt
     set_sleep_mode(SLEEP_MODE_IDLE);
     sleep_mode();
     //software_only_loop();
@@ -101,22 +101,41 @@ ISR(TIMER0_OVF_vect) {
   PORTB &= ~0x1;
 }
 
+// Check the ADC value and compare it. The value is divided by about 10 with a voltage divider
 ISR(ADC_vect) {
-  // Check the ADC value and compare it against threshold:
-  // the value is divided by about 10 with a voltage divider
+  static uint8_t Voltage_Up = 0;
   uint8_t Transistor_Drain_V = ADCH;
-  // 255 == 5V <-> measured = 50V
+  
+  // checking ADC conversions ....
+  PORTB ^= 0x8; // debug
+  
+  // ADCH values:
+  // 255 === 5V <-> measured = 50V
   // 255/50 = 5.1 ~= 1V
-  if (Transistor_Drain_V < 6) { // == if less than 1.2V
+  // 26 == ~5V
+  // 6 == ~1.2V
+  // 10 == ~2V
+  
+  // the following code works fine with R6=100k, R7=10.5k
+  // with 12V from Powerbank and 19.7V from 60W USB-C PD supply
+  // at higher rotation speed it minimizes the OFF-time of the transistor
+  // (see measurements done with sigrok/pulseview, saved in "pcb_measurements" *.sr files
+  //  that you can open with pulseview )
+  
+  //  check that voltage was up at least once:
+  if (Transistor_Drain_V > 26) {
+    Voltage_Up = Transistor_Drain_V;
+    PORTB |= 0x10; // trigger signal
+  }
+  // first down-swing
+  else if (Transistor_Drain_V < Voltage_Up && Transistor_Drain_V < 25) {
     ADCSRA &= ~((1<<ADIE)|(1<<ADEN)); // disable ADC and its interrupt for a while
-    //TODO: test and measure it first with debug port, then try if it works with transistor
-    //PORTB |= 0x1; // enable transistor again -> get more max. power from power banks
+    _delay_ms(0.01); // minimum-off-time
+    PORTB |= 0x1; // enable transistor again -> get more max. power from power banks
     PORTB |= 0x8; // debug
+    Voltage_Up = 0;
     // recommended ADC input resistance: 1..100k, or measurements would be slow
     
-  } else {
-     // continue checking ADC conversions ....
-    PORTB ^= 0x8; // debug
   }
 }
 
