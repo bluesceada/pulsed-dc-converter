@@ -10,8 +10,8 @@ F_CPU = 4000000	# in Hz
 FUSE_L = 0xD2
 # brown-out detection at 4.3V
 FUSE_H = 0xDC
-#PROGRAMMER = usbasp-clone -P usb
-PROGRAMMER = avrisp -b 19200 -P /dev/ttyUSB0
+PROGRAMMER = usbasp-clone -P usb
+#PROGRAMMER = avrisp -b 19200 -P /dev/ttyUSB0
 # try to add -b 20 -i 5 for slow programmer devices
 
 # Arduino ISP (as avrisp) pins:
