@@ -77,7 +77,6 @@ F 3 "" H 3550 1000 50  0001 C CNN
 	1    3550 1000
 	1    0    0    -1  
 $EndComp
-Connection ~ 5600 1000
 Wire Wire Line
 	6600 2600 6600 2950
 $Comp
@@ -138,7 +137,7 @@ U 1 1 61893B35
 P 5150 1300
 F 0 "C4" H 5268 1346 50  0000 L CNN
 F 1 "470u" H 5268 1255 50  0000 L CNN
-F 2 "Capacitor_THT:CP_Radial_D8.0mm_P2.50mm" H 5188 1150 50  0001 C CNN
+F 2 "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm" H 5188 1150 50  0001 C CNN
 F 3 "~" H 5150 1300 50  0001 C CNN
 	1    5150 1300
 	1    0    0    -1  
@@ -147,8 +146,6 @@ Connection ~ 6600 2950
 Wire Wire Line
 	6600 2950 6600 3250
 Connection ~ 5150 1000
-Wire Wire Line
-	5150 1000 5600 1000
 Wire Wire Line
 	4500 1000 4500 1150
 Wire Wire Line
@@ -413,15 +410,13 @@ F 3 "~" H 2350 2150 50  0001 C CNN
 $EndComp
 Connection ~ 2250 2900
 Wire Wire Line
-	5750 1700 5600 1700
-Wire Wire Line
-	5600 1000 6600 1000
+	5750 1700 5700 1700
 $Comp
 L Device:D_Zener D3
 U 1 1 619FD335
 P 5900 1700
 F 0 "D3" V 5850 1500 50  0000 L CNN
-F 1 "5.6V" V 5950 1450 50  0000 L CNN
+F 1 "5.6V or Wire" H 5800 1800 50  0000 L CNN
 F 2 "Diode_SMD:D_MiniMELF_Handsoldering" H 5900 1700 50  0001 C CNN
 F 3 "~" H 5900 1700 50  0001 C CNN
 F 4 "X" H 5900 1700 50  0001 C CNN "Spice_Primitive"
@@ -434,7 +429,7 @@ $EndComp
 Wire Wire Line
 	6600 1700 6500 1700
 Wire Wire Line
-	5600 1000 5600 1700
+	5700 1000 5700 1700
 $Comp
 L Simulation_SPICE:VDC V1
 U 1 1 619E88C9
@@ -693,4 +688,11 @@ Wire Wire Line
 	6200 1700 6050 1700
 Wire Wire Line
 	6600 1500 6600 1700
+Connection ~ 5700 1000
+Wire Wire Line
+	5700 1000 6600 1000
+Wire Wire Line
+	5150 1000 5700 1000
+Text Notes 4000 900  0    50   ~ 0
+Make sure C3 and C4 are tolerant to more than 20V (better 35V)
 $EndSCHEMATC
