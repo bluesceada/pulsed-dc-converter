@@ -18,6 +18,8 @@ Progress:
  [x] Use ADC feedback to increase the ON-time of the transistor to maximize power for powerbanks
 
 
+<img align="left" src="https://raw.githubusercontent.com/bluesceada/pulsed-dc-converter/main/pcb_kicad/kicad_schematic.png" alt="kicad schematic"/>
+
 <img align="left" src="https://raw.githubusercontent.com/bluesceada/pulsed-dc-converter/main/pcb_kicad/kicad_screenshot.png" alt="kicad pcb"/>
 
 <img align="left" src="https://raw.githubusercontent.com/bluesceada/pulsed-dc-converter/main/pcb_measurements/working_pcb_setup.jpg" alt="real hardware pcb setup picture"/>
